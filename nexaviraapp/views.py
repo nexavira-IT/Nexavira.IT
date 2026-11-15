@@ -8,7 +8,16 @@ from .models import JobOpportunity, PortfolioProject
 from .pricing_data import PRICING_SERVICES
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    projects = PortfolioProject.objects.filter(is_active=True).order_by('-id')[:6]
+    available_categories = set(
+        projects.order_by().values_list('category', flat=True).distinct()
+    )
+    return render(
+        request,
+        'index.html',
+        {'projects': projects},
+    )
+    # return render(request, 'index.html')
 
 def about(request):
     return render(request, 'about.html')
