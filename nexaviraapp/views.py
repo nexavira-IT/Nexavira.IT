@@ -7,17 +7,31 @@ from .forms import JobApplicationForm
 from .models import JobOpportunity, PortfolioProject
 from .pricing_data import PRICING_SERVICES
 # Create your views here.
+
 def home(request):
-    projects = PortfolioProject.objects.filter(is_active=True).order_by('-id')[:6]
-    available_categories = set(
-        projects.order_by().values_list('category', flat=True).distinct()
+    # Show latest 6 active projects on homepage
+    projects = PortfolioProject.objects.filter(
+        is_active=True
+    ).order_by('-id')[:6]
+
+    # Get all unique categories from active projects
+    available_categories = (
+        PortfolioProject.objects.filter(
+            is_active=True
+        ).order_by().values_list(
+            'category', flat=True
+        ).distinct()
     )
+
     return render(
         request,
         'index.html',
-        {'projects': projects},
+        {
+            'projects': projects,
+            'available_categories': available_categories,
+        },
     )
-    # return render(request, 'index.html')
+
 
 def about(request):
     return render(request, 'about.html')

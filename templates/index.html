@@ -268,41 +268,80 @@
         </ul>
       </div>
     </section>
+
+
+    <!-- Portfolio -->
     <section class="section">
       <div class="container">
+
         <div class="portfolio-toolbar">
           <div>
             <p class="eyebrow">Project library</p>
             <h2>Considered from the first click.</h2>
           </div>
+
+          <a href="{% url 'portfolio' %}" class="portfolio-view-all" style="color: #153F47; font-weight: bold;">
+            View All Projects <span aria-hidden="true">↗</span>
+          </a>
         </div>
+
         <div class="project-grid project-grid-page" data-project-grid>
+
           {% for project in projects %}
+
           <a class="project-card" data-category="{{ project.category }}" href="{% url 'portfolio_detail' project.id %}">
+
             <div class="project-image project-image-placeholder project-image-{{ project.category }}">
+
               {% if project.image %}
-              <img src="{{ project.image.url }}" alt="">
+              <img src="{{ project.image.url }}" alt="{{ project.title }}">
               {% else %}
               <span class="project-art-shape" aria-hidden="true"></span>
               {% endif %}
-              <span class="project-image-category">{{ project.get_category_display }}</span>
+
+              <span class="project-image-category">
+                {{ project.get_category_display }}
+              </span>
+
             </div>
+
             <div class="project-meta">
               <div>
-                <p class="project-category">{{ project.get_category_display }}</p>
+                <p class="project-category">
+                  {{ project.get_category_display }}
+                </p>
+
                 <h3>{{ project.title }}</h3>
               </div>
-              <span class="project-index">{{ forloop.counter|stringformat:"02d" }}</span>
+
+              <span class="project-index">
+                {{ forloop.counter|stringformat:"02d" }}
+              </span>
             </div>
-            <span class="project-card__hint">View project details <span aria-hidden="true">↗</span></span>
+
+            <span class="project-card__hint">
+              View project details <span aria-hidden="true">↗</span>
+            </span>
+
           </a>
+
           {% empty %}
-          <p class="filter-empty">Portfolio projects will appear here soon.</p>
+
+          <p class="filter-empty">
+            Portfolio projects will appear here soon.
+          </p>
+
           {% endfor %}
+
         </div>
-        <p class="filter-empty" data-filter-empty hidden>No projects in this category yet.</p>
+
+        <p class="filter-empty" data-filter-empty hidden>
+          No projects in this category yet.
+        </p>
+
       </div>
     </section>
+
 
     <!-- Process -->
     <section class="section section-process">
