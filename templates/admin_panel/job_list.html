@@ -1,0 +1,60 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Job opportunities{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div>
+      <p class="panel-eyebrow">CAREERS / DATABASE</p>
+      <h1>Job opportunities</h1>
+      <p>Manage the positions shown on your Careers page.</p>
+    </div>
+    {% if panel_permissions.add_jobs %}
+      <a class="panel-button panel-button--primary" href="{% url 'staff_panel:job_create' %}">＋ Add a job</a>
+    {% endif %}
+  </section>
+
+  <section class="panel-card">
+    <form class="panel-filters" method="get">
+      <label class="panel-search">
+        <span class="visually-hidden">Search jobs</span>
+        <input type="search" name="q" value="{{ query }}" placeholder="Search title or location">
+      </label>
+      <label>
+        <span class="visually-hidden">Filter by visibility</span>
+        <select name="status">
+          <option value="all"{% if status_filter == 'all' %} selected{% endif %}>All jobs</option>
+          <option value="active"{% if status_filter == 'active' %} selected{% endif %}>Visible on Careers</option>
+          <option value="inactive"{% if status_filter == 'inactive' %} selected{% endif %}>Hidden</option>
+        </select>
+      </label>
+      <button class="panel-button panel-button--primary" type="submit">Filter</button>
+    </form>
+    <div class="panel-table-wrap">
+      <table class="panel-table">
+        <thead><tr><th>Position</th><th>Employment</th><th>Work arrangement</th><th>Location</th><th>Visibility</th><th>Actions</th></tr></thead>
+        <tbody>
+          {% for job in jobs %}
+            <tr>
+              <td class="panel-table__primary">{{ job.title }}</td>
+              <td>{{ job.get_employment_type_display }}</td>
+              <td>{{ job.get_workplace_type_display }}</td>
+              <td>{{ job.location }}</td>
+              <td><span class="panel-status {% if job.is_active %}panel-status--active{% else %}panel-status--inactive{% endif %}">{% if job.is_active %}Visible{% else %}Hidden{% endif %}</span></td>
+              <td class="panel-table__actions">
+                {% if perms.nexaviraapp.change_jobopportunity %}
+                  <a href="{% url 'staff_panel:job_edit' job.id %}">Edit</a>
+                {% endif %}
+                {% if perms.nexaviraapp.delete_jobopportunity %}
+                  <a class="panel-danger-link" href="{% url 'staff_panel:job_delete' job.id %}">Delete</a>
+                {% endif %}
+              </td>
+            </tr>
+          {% empty %}
+            <tr><td class="panel-empty" colspan="6">No job opportunities match your search.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include "admin_panel/pagination.html" with page_obj=page_obj %}
+  </section>
+{% endblock %}

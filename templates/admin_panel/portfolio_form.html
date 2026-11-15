@@ -1,0 +1,28 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}{{ page_heading }}{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div>
+      <p class="panel-eyebrow">PORTFOLIO / DATABASE</p>
+      <h1>{{ page_heading }}</h1>
+      <p>Add the project details and choose whether it is visible to visitors.</p>
+    </div>
+    <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:portfolio_projects' %}">← Back to projects</a>
+  </section>
+  <section class="panel-card panel-card--form">
+    <form method="post" enctype="multipart/form-data" class="panel-form">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      {% if project and project.image %}
+        <p>Current image</p>
+        <img class="panel-portfolio-preview" src="{{ project.image.url }}" alt="{{ project.title }}">
+      {% endif %}
+      <div class="panel-form__actions">
+        <button class="panel-button panel-button--primary" type="submit">Save project</button>
+        <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:portfolio_projects' %}">Cancel</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

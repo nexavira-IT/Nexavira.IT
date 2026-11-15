@@ -1,0 +1,102 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Explore intelligent automation and AI integration with Nexavira IT for appropriate business workflows and practical use cases.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Intelligent Automation &amp; AI Integration | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/animations.css' %}" rel="stylesheet">
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Intelligent Automation &amp; AI Integration</p>
+        <h1>Make emerging technology <span>useful and considered.</span></h1>
+        <p>Explore ways to integrate automation and AI into appropriate business workflows, with clear goals and human
+          oversight.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span>/</span><a
+            href="{% url 'services' %}">Services</a><span>/</span><span>Automation &amp; AI</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container detail-layout">
+        <div class="detail-copy" data-reveal>
+          <p class="eyebrow">Practical use cases first</p>
+          <h2>Start with a workflow, not the technology trend.</h2>
+          <p class="section-lede">Automation and AI may help with specific repetitive or information-heavy tasks when
+            the use case, data and risks are understood.</p>
+          <p>We can help explore potential applications, plan integrations and define a small, measurable scope. Any
+            production use should include appropriate human review, privacy and security checks, and clear expectations
+            about limitations.</p><a class="button" href="{% url 'contact' %}">Discuss automation &amp; AI <span
+              aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="detail-panel" data-reveal data-reveal-delay="100"><span class="detail-panel-index">05 /
+            INTELLIGENT AUTOMATION &amp; AI</span>
+          <ul class="detail-list">
+            <li>Workflow and use-case discovery</li>
+            <li>Automation opportunity assessment</li>
+            <li>AI integration planning</li>
+            <li>Human review and escalation design</li>
+            <li>Data, privacy and risk considerations</li>
+            <li>Testing and ongoing evaluation planning</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Responsible implementation</p>
+            <h2>Useful outcomes need<br>clear safeguards.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>We consider whether automation is appropriate, what information it uses and where people need to stay
+              involved.</p>
+          </div>
+        </div>
+        <div class="principle-grid">
+          <article class="principle-card"><span>01 / USE CASE</span>
+            <h3>Define the intended task.</h3>
+            <p>Identify the problem, users and how the work will be evaluated.</p>
+          </article>
+          <article class="principle-card"><span>02 / OVERSIGHT</span>
+            <h3>Keep people in the loop.</h3>
+            <p>Decide when outputs need review, correction or escalation.</p>
+          </article>
+          <article class="principle-card"><span>03 / SAFEGUARDS</span>
+            <h3>Review data and risks.</h3>
+            <p>Check privacy, access, reliability and operational limitations before launch.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content">
+        <div>
+          <p class="eyebrow eyebrow-light">Explore a focused use case</p>
+          <h2>Where could thoughtful automation help?</h2>
+          <p>Let’s assess the workflow and the trade-offs together.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Start a conversation
+            <span>↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

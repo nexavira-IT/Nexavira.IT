@@ -1,0 +1,102 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Create customized mobile apps aligned with your brand, business goals and target platforms with Nexavira IT.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Mobile App Development | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/animations.css' %}" rel="stylesheet">
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Mobile App Development</p>
+        <h1>Mobile experiences <span>made for your goals.</span></h1>
+        <p>Build a customized app that aligns with your brand and supports the way your customers use mobile platforms.
+        </p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span>/</span><a
+            href="{% url 'services' %}">Services</a><span>/</span><span>Mobile App Development</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container detail-layout">
+        <div class="detail-copy" data-reveal>
+          <p class="eyebrow">A considered mobile product</p>
+          <h2>Start with the people who will use it.</h2>
+          <p class="section-lede">A useful mobile app connects a clear user need with the right features, platform
+            choices and product experience.</p>
+          <p>We can help clarify the app idea, plan key user journeys and shape a development scope around your brand
+            and goals. Platform coverage, integrations and release requirements are determined with you during project
+            planning.</p><a class="button" href="{% url 'contact' %}">Discuss a mobile app <span
+              aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="detail-panel" data-reveal data-reveal-delay="100"><span class="detail-panel-index">02 / MOBILE APP
+            DEVELOPMENT</span>
+          <ul class="detail-list">
+            <li>App concept and requirements discovery</li>
+            <li>Platform and feature planning</li>
+            <li>Mobile interface and user-flow design</li>
+            <li>App development and integrations</li>
+            <li>Device and workflow testing</li>
+            <li>Release and ongoing support planning</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Plan for your platforms</p>
+            <h2>Brand, goals and usability<br>in one direction.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>We clarify the intended users, platform needs and practical constraints before committing to a feature
+              set.</p>
+          </div>
+        </div>
+        <div class="principle-grid">
+          <article class="principle-card"><span>01 / DISCOVER</span>
+            <h3>Define the app’s purpose.</h3>
+            <p>Understand the audience, core need and intended outcome.</p>
+          </article>
+          <article class="principle-card"><span>02 / DESIGN</span>
+            <h3>Shape the key journeys.</h3>
+            <p>Prioritize useful screens, content and interactions.</p>
+          </article>
+          <article class="principle-card"><span>03 / DELIVER</span>
+            <h3>Build and review in steps.</h3>
+            <p>Test the experience on the agreed devices and platforms.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content">
+        <div>
+          <p class="eyebrow eyebrow-light">Have an app idea?</p>
+          <h2>Let’s explore it together.</h2>
+          <p>Tell us about your users, goals and platform needs.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Start a conversation
+            <span>↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

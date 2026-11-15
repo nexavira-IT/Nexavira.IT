@@ -1,0 +1,100 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Nexavira IT builds reliable, scalable software tailored to business needs, focused on efficiency and long-term growth.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Software Development | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/animations.css' %}" rel="stylesheet">
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Software Development</p>
+        <h1>Software tailored to <span>your business needs.</span></h1>
+        <p>Build reliable, scalable software focused on efficiency and long-term growth.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span>/</span><a
+            href="{% url 'services' %}">Services</a><span>/</span><span>Software Development</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container detail-layout">
+        <div class="detail-copy" data-reveal>
+          <p class="eyebrow">Purpose-built software</p>
+          <h2>Make your tools fit the way your business works.</h2>
+          <p class="section-lede">When standard tools do not meet a clearly defined need, custom software can support
+            your processes and goals more closely.</p>
+          <p>We start by understanding the people, workflows and requirements involved. From there, we can plan a
+            suitable solution, agree a maintainable scope and build in stages with clear reviews.</p><a class="button"
+            href="{% url 'contact' %}">Discuss software development <span aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="detail-panel" data-reveal data-reveal-delay="100"><span class="detail-panel-index">03 / SOFTWARE
+            DEVELOPMENT</span>
+          <ul class="detail-list">
+            <li>Business requirements and workflow discovery</li>
+            <li>Custom software planning and development</li>
+            <li>System and API integration considerations</li>
+            <li>Scalable, maintainable implementation</li>
+            <li>Testing and deployment preparation</li>
+            <li>Documentation and support planning</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Built around your needs</p>
+            <h2>Efficiency now,<br>room for what’s next.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>We keep the solution connected to the agreed requirements and discuss future needs without overbuilding
+              the first release.</p>
+          </div>
+        </div>
+        <div class="principle-grid">
+          <article class="principle-card"><span>01 / FIT</span>
+            <h3>Understand the workflow.</h3>
+            <p>Learn where existing tools help and where they create friction.</p>
+          </article>
+          <article class="principle-card"><span>02 / FOUNDATION</span>
+            <h3>Plan for maintainability.</h3>
+            <p>Consider how the software will be supported and changed over time.</p>
+          </article>
+          <article class="principle-card"><span>03 / DELIVERY</span>
+            <h3>Review progress together.</h3>
+            <p>Break work into understandable stages and validate the important details.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content">
+        <div>
+          <p class="eyebrow eyebrow-light">A better fit for your work</p>
+          <h2>Let’s talk about the software you need.</h2>
+          <p>Start with the workflow or challenge you want to improve.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Discuss your requirements
+            <span>↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+{% load static job_html %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apply for a career opportunity at Nexavira IT.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Apply: {{ job.title }} | Nexavira IT</title>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content">
+        <p class="eyebrow">Career application</p>
+        <h1>Apply for <span>{{ job.title }}</span></h1>
+        <p>{{ job.get_employment_type_display }} · {{ job.get_workplace_type_display }} · {{ job.location }}</p>
+        <div class="breadcrumbs">
+          <a href="{% url 'home' %}">Home</a><span aria-hidden="true">/</span>
+          <a href="{% url 'career' %}">Careers</a><span aria-hidden="true">/</span>
+          <span>Apply</span>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="contact-form-wrap application-wrap">
+          <details class="job-details">
+            <summary>View full job description</summary>
+            <div>{{ job.description|sanitize_job_html }}</div>
+          </details>
+          <form class="contact-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Application details</h2>
+            <p>Name, email, phone and resume are required. Cover letter is optional.</p>
+            {% if form.non_field_errors %}
+            <div class="career-form-errors" role="alert">{{ form.non_field_errors }}</div>
+            {% endif %}
+            <div class="form-grid">
+              {% for field in form %}
+              <div class="form-field{% if field.name == 'resume' or field.name == 'cover_letter' %} form-field-full{% endif %}">
+                <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} <span aria-hidden="true">*</span>{% endif %}</label>
+                {{ field }}
+                {% if field.help_text %}<small class="form-help">{{ field.help_text }}</small>{% endif %}
+                {% for error in field.errors %}<span class="field-error">{{ error }}</span>{% endfor %}
+              </div>
+              {% endfor %}
+            </div>
+            <button class="button form-submit" type="submit">Submit application
+              <span aria-hidden="true">↗</span></button>
+            <p class="application-back"><a class="text-link text-link-dark" href="{% url 'career' %}">Back to careers</a></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

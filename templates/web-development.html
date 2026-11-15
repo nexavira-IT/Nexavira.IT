@@ -1,0 +1,111 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Nexavira IT web development services help establish an impactful online presence and reach your target audience effectively.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Web Development | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/animations.css' %}" rel="stylesheet">
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Web Development</p>
+        <h1>An impactful web presence, <span>built for your audience.</span></h1>
+        <p>We create modern web experiences that help people understand your business and find the next step.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span>/</span><a
+            href="{% url 'services' %}">Services</a><span>/</span><span>Web Development</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container detail-layout">
+        <div class="detail-copy" data-reveal>
+          <p class="eyebrow">Reach your audience effectively</p>
+          <h2>Make your website work harder for your business.</h2>
+          <p class="section-lede">A clear, responsive website gives your audience a helpful way to discover your offer,
+            understand what makes it relevant and connect with your team.</p>
+          <p>We work with you on the structure, design and development, keeping your audience and business goals in
+            view. Scope and features are agreed before development starts.</p><a class="button"
+            href="{% url 'contact' %}">Discuss web development <span aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="detail-panel" data-reveal data-reveal-delay="100"><span class="detail-panel-index">01 / WEB
+            DEVELOPMENT</span>
+          <ul class="detail-list">
+            <li>Business and service websites</li>
+            <li>Responsive page design and development</li>
+            <li>Clear content and navigation structure</li>
+            <li>Accessibility and cross-device considerations</li>
+            <li>Testing and launch preparation</li>
+            <li>Handover and support planning</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A clear process</p>
+            <h2>From the first brief to launch.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>We align the scope and priorities with you and share progress as the website takes shape.</p>
+          </div>
+        </div>
+        <ol class="process-list">
+          <li><span class="process-number">01</span>
+            <div>
+              <h3>Understand</h3>
+              <p>Learn about your business and audience.</p>
+            </div>
+          </li>
+          <li><span class="process-number">02</span>
+            <div>
+              <h3>Plan</h3>
+              <p>Agree on pages, priorities and scope.</p>
+            </div>
+          </li>
+          <li><span class="process-number">03</span>
+            <div>
+              <h3>Build</h3>
+              <p>Design, develop and review together.</p>
+            </div>
+          </li>
+          <li><span class="process-number">04</span>
+            <div>
+              <h3>Test &amp; launch</h3>
+              <p>Check the details and prepare handover.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content">
+        <div>
+          <p class="eyebrow eyebrow-light">Make a stronger first impression</p>
+          <h2>Let’s talk about your website.</h2>
+          <p>Tell us what you want to make possible online.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Start a conversation
+            <span>↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

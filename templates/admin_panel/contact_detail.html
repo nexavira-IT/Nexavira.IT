@@ -1,0 +1,18 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Contact inquiry{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div><p class="panel-eyebrow">CONTACT / INQUIRY</p><h1>{{ inquiry.name }}</h1><p>{{ inquiry.company }} · {{ inquiry.service }}</p></div>
+    <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:contact_list' %}">← Back to inquiries</a>
+  </section>
+  <section class="panel-card panel-card--message">
+    <div class="panel-card__heading"><div><p class="panel-eyebrow">CUSTOMER MESSAGE</p><h2>{{ inquiry.service }}</h2></div></div>
+    <dl class="panel-details">
+      <div><dt>Email</dt><dd><a href="mailto:{{ inquiry.email }}">{{ inquiry.email }}</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:{{ inquiry.phone }}">{{ inquiry.phone }}</a></dd></div>
+      <div><dt>Company</dt><dd>{{ inquiry.company }}</dd></div>
+    </dl>
+    <div class="panel-message-body">{{ inquiry.message|linebreaks }}</div>
+  </section>
+{% endblock %}

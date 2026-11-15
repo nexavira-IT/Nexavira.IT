@@ -1,0 +1,24 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}{{ page_heading }}{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div>
+      <p class="panel-eyebrow">CAREERS / DATABASE</p>
+      <h1>{{ page_heading }}</h1>
+      <p>Set the role details and choose whether it is visible to applicants.</p>
+    </div>
+    <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:job_list' %}">← Back to jobs</a>
+  </section>
+  <section class="panel-card panel-card--form">
+    <form method="post" class="panel-form">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {{ form.as_p }}
+      <div class="panel-form__actions">
+        <button class="panel-button panel-button--primary" type="submit">Save job</button>
+        <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:job_list' %}">Cancel</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

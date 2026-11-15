@@ -1,0 +1,175 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Explore web development, mobile app development, software development, cloud services, intelligent automation and AI integration, and IT consulting from Nexavira IT.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Services | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Our services</p>
+        <h1>Technology that <span>moves you forward.</span></h1>
+        <p>From web and mobile applications to software, cloud and advisory services, get support for the work ahead.
+        </p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span aria-hidden="true">/</span><span>Services</span>
+        </div>
+      </div>
+    </section>
+    <section class="section section-services">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Ways we can help</p>
+            <h2>Six connected capabilities.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>Explore the service that matches your current goal. We’ll help clarify the scope and the right next step.
+            </p>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="service-card" data-reveal><span class="service-icon" aria-hidden="true"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M3 8h18M8 13l-2 2 2 2m8-4 2 2-2 2m-4-5-1 6"></path>
+              </svg></span>
+            <h3>Web Development</h3>
+            <p>Build an impactful online presence and reach your target audience effectively.</p><a
+              href="{% url 'web-development' %}" aria-label="Learn more about web development">Learn more <span
+                aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card" data-reveal data-reveal-delay="60"><span class="service-icon"
+              aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="7" y="2.5" width="10" height="19" rx="2"></rect>
+                <path d="M10 5h4m-3 13.5h2"></path>
+              </svg></span>
+            <h3>Mobile App Development</h3>
+            <p>Customized mobile apps shaped around your brand, goals and platforms.</p><a
+              href="{% url 'mobile-app-development' %}" aria-label="Learn more about mobile app development">Learn
+              more <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card" data-reveal data-reveal-delay="120"><span class="service-icon"
+              aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-10-2 12"></path>
+              </svg></span>
+            <h3>Software Development</h3>
+            <p>Reliable, scalable software tailored to your needs and long-term growth.</p><a
+              href="{% url 'software-development' %}" aria-label="Learn more about software development">Learn more
+              <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card" data-reveal><span class="service-icon" aria-hidden="true"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6.5 18.5h11a4 4 0 0 0 .4-8 6.5 6.5 0 0 0-12.4-1.2 4.7 4.7 0 0 0 1 9.2Z"></path>
+                <path d="M9 14h6m-5-3 2 3 2-3"></path>
+              </svg></span>
+            <h3>Cloud Services</h3>
+            <p>Find cloud solutions that fit your business needs, goals and technology.</p><a
+              href="{% url 'cloud-services' %}" aria-label="Learn more about cloud services">Learn more <span
+                aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card" data-reveal data-reveal-delay="60"><span class="service-icon"
+              aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 3v3m0 12v3M3 12h3m12 0h3m-2.6-6.4-2.1 2.1M7.7 16.3l-2.1 2.1m12.8 0-2.1-2.1m-8.6-8.6L5.6 5.6">
+                </path>
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="m10.5 12 1 1 2-2"></path>
+              </svg></span>
+            <h3>Intelligent Automation &amp; AI Integration</h3>
+            <p>Explore practical automation and AI integrations for your business workflows.</p><a
+              href="{% url 'automation-ai-integration' %}"
+              aria-label="Learn more about intelligent automation and AI integration">Learn more <span
+                aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card service-card-featured" data-reveal data-reveal-delay="120"><span
+              class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 4h14v16H5zM8 8h8M8 12h3m2 3 1.5 1.5L18 13"></path>
+              </svg></span>
+            <h3>IT Consulting &amp; Advisory</h3>
+            <p>Get guidance to select, implement and manage technology appropriately.</p><a
+              href="{% url 'it-consulting-advisory' %}" aria-label="Learn more about IT consulting and advisory">Learn
+              more <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">How we work</p>
+            <h2>From first conversation<br>to ongoing support.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>We make scope and decisions understandable, and keep you involved in the important moments.</p>
+          </div>
+        </div>
+        <ol class="process-list">
+          <li><span class="process-number">01</span>
+            <div>
+              <h3>Understand</h3>
+              <p>We learn about your business and what success means for you.</p>
+            </div>
+          </li>
+          <li><span class="process-number">02</span>
+            <div>
+              <h3>Plan</h3>
+              <p>We agree on priorities, project scope and the right tools.</p>
+            </div>
+          </li>
+          <li><span class="process-number">03</span>
+            <div>
+              <h3>Build together</h3>
+              <p>We share progress, test the details and refine along the way.</p>
+            </div>
+          </li>
+          <li><span class="process-number">04</span>
+            <div>
+              <h3>Launch &amp; support</h3>
+              <p>We help you get live and can continue to support the work.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow-light">Let’s find the right fit</p>
+          <h2>Tell us what you need to make possible.</h2>
+          <p>We’ll get back to you to learn more about the project.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Talk to our team <span
+              aria-hidden="true">↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

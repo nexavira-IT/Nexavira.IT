@@ -1,0 +1,100 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Explore cloud services with Nexavira IT to identify cloud solutions suited to your business needs, goals and operations.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Cloud Services | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/animations.css' %}" rel="stylesheet">
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Cloud Services</p>
+        <h1>Find the right cloud <span>for your business.</span></h1>
+        <p>Explore cloud solutions that support your business needs, goals and day-to-day operations.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span>/</span><a
+            href="{% url 'services' %}">Services</a><span>/</span><span>Cloud Services</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container detail-layout">
+        <div class="detail-copy" data-reveal>
+          <p class="eyebrow">Cloud choices with context</p>
+          <h2>Choose an approach that fits how you work.</h2>
+          <p class="section-lede">Cloud technologies can support hosting, collaboration, storage and software delivery.
+            The right setup depends on your workloads, constraints and team.</p>
+          <p>We can help assess needs, compare options and plan an implementation approach. Providers, migration scope,
+            security responsibilities and ongoing operational costs should be understood before making a change.</p><a
+            class="button" href="{% url 'contact' %}">Discuss cloud services <span aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="detail-panel" data-reveal data-reveal-delay="100"><span class="detail-panel-index">04 / CLOUD
+            SERVICES</span>
+          <ul class="detail-list">
+            <li>Cloud needs and current setup review</li>
+            <li>Solution and provider evaluation</li>
+            <li>Hosting and deployment planning</li>
+            <li>Migration considerations</li>
+            <li>Access, backup and operations planning</li>
+            <li>Documentation and ongoing management options</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Plan for your operations</p>
+            <h2>Cloud should support<br>the work behind it.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>We discuss operational fit and trade-offs with you rather than assuming a cloud move is right for every
+              situation.</p>
+          </div>
+        </div>
+        <div class="principle-grid">
+          <article class="principle-card"><span>01 / ASSESS</span>
+            <h3>Understand current needs.</h3>
+            <p>Review workloads, dependencies, users and constraints.</p>
+          </article>
+          <article class="principle-card"><span>02 / PLAN</span>
+            <h3>Compare practical options.</h3>
+            <p>Consider capability, migration effort and ongoing ownership.</p>
+          </article>
+          <article class="principle-card"><span>03 / OPERATE</span>
+            <h3>Prepare for the long run.</h3>
+            <p>Plan access, updates, monitoring, recovery and support responsibilities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content">
+        <div>
+          <p class="eyebrow eyebrow-light">Make an informed cloud choice</p>
+          <h2>Let’s look at what your business needs.</h2>
+          <p>We can help you explore a suitable direction.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Talk to our team
+            <span>↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

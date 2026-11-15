@@ -1,0 +1,42 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="The page you’re looking for could not be found. Return to Nexavira IT or explore our services.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Page Not Found | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="not-found">
+      <div class="container not-found-content" data-reveal>
+        <p class="not-found-code">404</p>
+        <p class="eyebrow">This page took a wrong turn</p>
+        <h1>We can’t find that <span>page.</span></h1>
+        <p>The address may be outdated, or the page may have moved. Let’s get you back on track.</p>
+        <div class="hero-actions"><a class="button" href="{% url 'home' %}">Back to home <span
+              aria-hidden="true">↗</span></a><a class="text-link text-link-dark" href="{% url 'services' %}">Explore our
+            services <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

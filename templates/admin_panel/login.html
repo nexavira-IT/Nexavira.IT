@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b45">
+  <title>Admin login | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
+</head>
+<body class="panel-login">
+  <main class="panel-login__card">
+    <a class="panel-login__brand" href="{% url 'home' %}">
+      <img src="{% static 'images/NexaviraIT.png' %}" alt="Nexavira IT">
+    </a>
+    <p class="panel-eyebrow">NEXAVIRA IT / PRIVATE AREA</p>
+    <h1>Welcome back.</h1>
+    <p class="panel-login__intro">Sign in with your staff account to manage the website.</p>
+    <form method="post" class="panel-form">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+        <div class="panel-form__errors" role="alert">{{ form.non_field_errors }}</div>
+      {% endif %}
+      {{ form.as_p }}
+      <button class="panel-button panel-button--primary panel-button--full" type="submit">Sign in</button>
+    </form>
+    <a class="panel-login__back" href="{% url 'home' %}">← Back to website</a>
+  </main>
+</body>
+</html>

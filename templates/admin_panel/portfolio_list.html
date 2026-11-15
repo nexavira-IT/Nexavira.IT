@@ -1,0 +1,59 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Portfolio projects{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div>
+      <p class="panel-eyebrow">PORTFOLIO / DATABASE</p>
+      <h1>Portfolio projects</h1>
+      <p>Manage the projects displayed on your public Portfolio page.</p>
+    </div>
+    {% if panel_permissions.add_portfolio %}
+      <a class="panel-button panel-button--primary" href="{% url 'staff_panel:portfolio_create' %}">＋ Add a project</a>
+    {% endif %}
+  </section>
+
+  <section class="panel-card">
+    <form class="panel-filters" method="get">
+      <label class="panel-search">
+        <span class="visually-hidden">Search projects</span>
+        <input type="search" name="q" value="{{ query }}" placeholder="Search name or details">
+      </label>
+      <label>
+        <span class="visually-hidden">Filter by visibility</span>
+        <select name="status">
+          <option value="all"{% if status_filter == 'all' %} selected{% endif %}>All projects</option>
+          <option value="active"{% if status_filter == 'active' %} selected{% endif %}>Visible on Portfolio</option>
+          <option value="inactive"{% if status_filter == 'inactive' %} selected{% endif %}>Hidden</option>
+        </select>
+      </label>
+      <button class="panel-button panel-button--primary" type="submit">Filter</button>
+    </form>
+    <div class="panel-table-wrap">
+      <table class="panel-table">
+        <thead><tr><th>Project</th><th>Category</th><th>Order</th><th>Visibility</th><th>Actions</th></tr></thead>
+        <tbody>
+          {% for project in projects %}
+            <tr>
+              <td class="panel-table__primary">{{ project.title }}</td>
+              <td>{{ project.get_category_display }}</td>
+              <td>{{ project.display_order }}</td>
+              <td><span class="panel-status {% if project.is_active %}panel-status--active{% else %}panel-status--inactive{% endif %}">{% if project.is_active %}Visible{% else %}Hidden{% endif %}</span></td>
+              <td class="panel-table__actions">
+                {% if perms.nexaviraapp.change_portfolioproject %}
+                  <a href="{% url 'staff_panel:portfolio_edit' project.id %}">Edit</a>
+                {% endif %}
+                {% if perms.nexaviraapp.delete_portfolioproject %}
+                  <a class="panel-danger-link" href="{% url 'staff_panel:portfolio_delete' project.id %}">Delete</a>
+                {% endif %}
+              </td>
+            </tr>
+          {% empty %}
+            <tr><td class="panel-empty" colspan="5">No portfolio projects match your search.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include "admin_panel/pagination.html" with page_obj=page_obj %}
+  </section>
+{% endblock %}

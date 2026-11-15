@@ -1,0 +1,33 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Contact inquiries{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div><p class="panel-eyebrow">CONTACT / INBOX</p><h1>Contact inquiries</h1><p>Messages submitted through the website contact form.</p></div>
+  </section>
+  <section class="panel-card">
+    <form class="panel-filters" method="get">
+      <label class="panel-search"><span class="visually-hidden">Search inquiries</span><input type="search" name="q" value="{{ query }}" placeholder="Search name, email, company or service"></label>
+      <button class="panel-button panel-button--primary" type="submit">Search</button>
+    </form>
+    <div class="panel-table-wrap">
+      <table class="panel-table">
+        <thead><tr><th>Name</th><th>Company</th><th>Service</th><th>Email</th><th></th></tr></thead>
+        <tbody>
+          {% for inquiry in inquiries %}
+            <tr>
+              <td class="panel-table__primary">{{ inquiry.name }}</td>
+              <td>{{ inquiry.company }}</td>
+              <td>{{ inquiry.service }}</td>
+              <td><a href="mailto:{{ inquiry.email }}">{{ inquiry.email }}</a></td>
+              <td><a href="{% url 'staff_panel:contact_detail' inquiry.id %}">Read message</a></td>
+            </tr>
+          {% empty %}
+            <tr><td class="panel-empty" colspan="5">No inquiries match your search.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include "admin_panel/pagination.html" with page_obj=page_obj %}
+  </section>
+{% endblock %}

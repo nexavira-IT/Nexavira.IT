@@ -1,0 +1,93 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Explore selected website, e-commerce and web application projects by Nexavira IT.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Portfolio | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Selected work</p>
+        <h1>Digital work with <span>a reason behind it.</span></h1>
+        <p>Explore a selection of digital projects created by the Nexavira IT team.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span aria-hidden="true">/</span><span>Portfolio</span>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="portfolio-toolbar">
+          <div>
+            <p class="eyebrow">Project library</p>
+            <h2>Considered from the first click.</h2>
+          </div>
+          <div class="filter-list" role="group" aria-label="Filter projects by category">
+            <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">All</button>
+            {% for value, label in categories %}
+              <button class="filter-button" type="button" data-filter="{{ value }}" aria-pressed="false">{{ label }}</button>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-grid project-grid-page" data-project-grid>
+          {% for project in projects %}
+            <a class="project-card" data-category="{{ project.category }}"
+                href="{% url 'portfolio_detail' project.id %}">
+                <div class="project-image project-image-placeholder project-image-{{ project.category }}">
+                  {% if project.image %}
+                    <img src="{{ project.image.url }}" alt="">
+                  {% else %}
+                    <span class="project-art-shape" aria-hidden="true"></span>
+                  {% endif %}
+                  <span class="project-image-category">{{ project.get_category_display }}</span>
+                </div>
+                <div class="project-meta">
+                  <div>
+                    <p class="project-category">{{ project.get_category_display }}</p>
+                    <h3>{{ project.title }}</h3>
+                  </div>
+                  <span class="project-index">{{ forloop.counter|stringformat:"02d" }}</span>
+                </div>
+                <span class="project-card__hint">View project details <span aria-hidden="true">↗</span></span>
+            </a>
+          {% empty %}
+            <p class="filter-empty">Portfolio projects will appear here soon.</p>
+          {% endfor %}
+        </div>
+        <p class="filter-empty" data-filter-empty hidden>No projects in this category yet.</p>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow-light">Your project could be next</p>
+          <h2>Let’s make something useful.</h2>
+          <p>Share what you’re working on and we’ll take it from there.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Start a project <span
+              aria-hidden="true">↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

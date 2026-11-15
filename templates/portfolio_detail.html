@@ -1,0 +1,88 @@
+<!doctype html>
+{% load static job_html %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ project.title }} — a Nexavira IT portfolio project.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>{{ project.title }} | Portfolio | Nexavira IT</title>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="project-detail-hero">
+      <div class="container project-detail-hero__inner" data-reveal>
+        <div class="breadcrumbs">
+          <a href="{% url 'home' %}">Home</a><span aria-hidden="true">/</span>
+          <a href="{% url 'portfolio' %}">Portfolio</a><span aria-hidden="true">/</span>
+          <span>{{ project.title }}</span>
+        </div>
+        <p class="eyebrow">{{ project.get_category_display }}</p>
+        <h1>{{ project.title }}</h1>
+        <p class="project-detail-intro">Explore the project story, details and technologies.</p>
+      </div>
+    </section>
+    <section class="project-detail-section">
+      <div class="container">
+        <a class="portfolio-back-link" href="{% url 'portfolio' %}">← Back to all projects</a>
+        <div class="project-detail-cover project-image-placeholder project-image-{{ project.category }}">
+          {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+            <span class="project-image-category">{{ project.get_category_display }}</span>
+          {% else %}
+            <span class="project-art-shape" aria-hidden="true"></span>
+            <div class="project-detail-art">
+              <span>PROJECT / {{ project.get_category_display }}</span>
+              <strong>{{ project.title }}</strong>
+            </div>
+          {% endif %}
+        </div>
+        <div class="project-detail-layout">
+          <article class="project-detail-content">
+            <p class="eyebrow">The project</p>
+            <h2>About this work</h2>
+            <div class="project-detail-description">{{ project.description|sanitize_job_html }}</div>
+          </article>
+          <aside class="project-detail-sidebar">
+            <p class="eyebrow">At a glance</p>
+            <h2>Project snapshot</h2>
+            <dl class="project-detail-facts">
+              <div>
+                <dt>Category</dt>
+                <dd>{{ project.get_category_display }}</dd>
+              </div>
+              {% if project.technology_list %}
+                <div>
+                  <dt>Technologies &amp; capabilities</dt>
+                  <dd>
+                    <ul class="tag-list">
+                      {% for technology in project.technology_list %}
+                        <li>{{ technology }}</li>
+                      {% endfor %}
+                    </ul>
+                  </dd>
+                </div>
+              {% endif %}
+            </dl>
+            {% if project.project_url %}
+              <a class="button project-detail-visit" href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer">
+                Visit project <span aria-hidden="true">↗</span>
+              </a>
+            {% endif %}
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

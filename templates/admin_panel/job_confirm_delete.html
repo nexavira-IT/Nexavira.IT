@@ -1,0 +1,17 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Delete job{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div><p class="panel-eyebrow">CAREERS / DATABASE</p><h1>Delete job opportunity</h1></div>
+  </section>
+  <section class="panel-card panel-card--form">
+    <p>Are you sure you want to delete <strong>{{ job.title }}</strong>?</p>
+    <p class="panel-form__help">A job with submitted applications cannot be deleted. You can hide it from the Careers page instead.</p>
+    <form method="post" class="panel-form__actions">
+      {% csrf_token %}
+      <button class="panel-button panel-button--danger" type="submit">Yes, delete job</button>
+      <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:job_list' %}">Cancel</a>
+    </form>
+  </section>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Overview{% endblock %}
+{% block content %}
+  <section class="panel-welcome">
+    <div>
+      <p class="panel-eyebrow">NEXAVIRA / ADMINISTRATION</p>
+      <h1>Welcome back, {{ request.user.get_short_name|default:request.user.username }}.</h1>
+      <p>Manage your website content, portfolio projects, job opportunities, and incoming requests.</p>
+    </div>
+    {% if panel_permissions.add_jobs %}
+      <a class="panel-button panel-button--light" href="{% url 'staff_panel:job_create' %}">＋ Add a job</a>
+    {% endif %}
+  </section>
+
+  <section class="panel-stats" aria-label="Website overview">
+    {% if panel_permissions.jobs %}
+      <a class="panel-stat" href="{% url 'staff_panel:job_list' %}">
+        <span class="panel-stat__icon panel-stat__icon--gold" aria-hidden="true">▤</span>
+        <span class="panel-stat__label">Active opportunities</span>
+        <strong>{{ active_job_count }}</strong>
+        <span class="panel-stat__hint">Manage job listings <span aria-hidden="true">→</span></span>
+      </a>
+    {% endif %}
+    {% if panel_permissions.portfolio %}
+      <a class="panel-stat" href="{% url 'staff_panel:portfolio_projects' %}">
+        <span class="panel-stat__icon panel-stat__icon--blue" aria-hidden="true">▧</span>
+        <span class="panel-stat__label">Published projects</span>
+        <strong>{{ portfolio_project_count }}</strong>
+        <span class="panel-stat__hint">Manage portfolio projects <span aria-hidden="true">→</span></span>
+      </a>
+    {% endif %}
+    {% if panel_permissions.applications %}
+      <a class="panel-stat" href="{% url 'staff_panel:application_list' %}">
+        <span class="panel-stat__icon panel-stat__icon--green" aria-hidden="true">▣</span>
+        <span class="panel-stat__label">New applications</span>
+        <strong>{{ new_application_count }}</strong>
+        <span class="panel-stat__hint">{{ application_count }} total applications <span aria-hidden="true">→</span></span>
+      </a>
+    {% endif %}
+    {% if panel_permissions.contacts %}
+      <a class="panel-stat" href="{% url 'staff_panel:contact_list' %}">
+        <span class="panel-stat__icon panel-stat__icon--blue" aria-hidden="true">✉</span>
+        <span class="panel-stat__label">Contact inquiries</span>
+        <strong>{{ contact_count }}</strong>
+        <span class="panel-stat__hint">Review customer messages <span aria-hidden="true">→</span></span>
+      </a>
+    {% endif %}
+  </section>
+
+  <div class="panel-content-grid">
+    {% if panel_permissions.applications %}
+      <section class="panel-card panel-card--wide">
+        <div class="panel-card__heading">
+          <div>
+            <p class="panel-eyebrow">HIRING</p>
+            <h2>Recent applications</h2>
+          </div>
+          <a class="panel-text-link" href="{% url 'staff_panel:application_list' %}">View all <span aria-hidden="true">→</span></a>
+        </div>
+        {% if recent_applications %}
+          <div class="panel-table-wrap">
+            <table class="panel-table">
+              <thead><tr><th>Applicant</th><th>Position</th><th>Status</th><th>Received</th></tr></thead>
+              <tbody>
+                {% for application in recent_applications %}
+                  <tr>
+                    <td><a href="{% url 'staff_panel:application_detail' application.id %}">{{ application.name }}</a></td>
+                    <td>{{ application.job.title }}</td>
+                    <td><span class="panel-status panel-status--{{ application.status }}">{{ application.get_status_display }}</span></td>
+                    <td>{{ application.submitted_at|date:"M j, Y" }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="panel-empty">No applications have been submitted yet.</p>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    <section class="panel-card panel-card--shortcuts">
+      <div class="panel-card__heading">
+        <div><p class="panel-eyebrow">QUICK ACCESS</p><h2>Manage your website</h2></div>
+      </div>
+      <div class="panel-shortcuts">
+        {% if panel_permissions.portfolio %}
+          <a href="{% url 'staff_panel:portfolio_projects' %}"><span>Portfolio projects</span><span aria-hidden="true">↗</span></a>
+        {% endif %}
+        {% if panel_permissions.jobs %}
+          <a href="{% url 'staff_panel:job_list' %}"><span>Job opportunities</span><span aria-hidden="true">↗</span></a>
+        {% endif %}
+        {% if panel_permissions.applications %}
+          <a href="{% url 'staff_panel:application_list' %}"><span>Job applications</span><span aria-hidden="true">↗</span></a>
+        {% endif %}
+        {% if panel_permissions.contacts %}
+          <a href="{% url 'staff_panel:contact_list' %}"><span>Contact inquiries</span><span aria-hidden="true">↗</span></a>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+{% endblock %}

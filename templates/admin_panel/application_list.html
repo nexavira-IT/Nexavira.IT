@@ -1,0 +1,43 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Applications{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div><p class="panel-eyebrow">CAREERS / INBOX</p><h1>Job applications</h1><p>Review applicants and update each application status.</p></div>
+  </section>
+  <section class="panel-card">
+    <form class="panel-filters" method="get">
+      <label class="panel-search"><span class="visually-hidden">Search applications</span><input type="search" name="q" value="{{ query }}" placeholder="Search name, email or role"></label>
+      <label>
+        <span class="visually-hidden">Filter by status</span>
+        <select name="status">
+          <option value="">All statuses</option>
+          {% for value, label in status_choices %}
+            <option value="{{ value }}"{% if status_filter == value %} selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <button class="panel-button panel-button--primary" type="submit">Filter</button>
+    </form>
+    <div class="panel-table-wrap">
+      <table class="panel-table">
+        <thead><tr><th>Applicant</th><th>Position</th><th>Email</th><th>Status</th><th>Received</th><th></th></tr></thead>
+        <tbody>
+          {% for application in applications %}
+            <tr>
+              <td class="panel-table__primary">{{ application.name }}</td>
+              <td>{{ application.job.title }}</td>
+              <td><a href="mailto:{{ application.email }}">{{ application.email }}</a></td>
+              <td><span class="panel-status panel-status--{{ application.status }}">{{ application.get_status_display }}</span></td>
+              <td>{{ application.submitted_at|date:"M j, Y" }}</td>
+              <td><a href="{% url 'staff_panel:application_detail' application.id %}">Open</a></td>
+            </tr>
+          {% empty %}
+            <tr><td class="panel-empty" colspan="6">No applications match your search.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include "admin_panel/pagination.html" with page_obj=page_obj %}
+  </section>
+{% endblock %}

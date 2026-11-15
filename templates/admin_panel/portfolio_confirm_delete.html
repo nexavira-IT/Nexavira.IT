@@ -1,0 +1,23 @@
+{% extends "admin_panel/base.html" %}
+
+{% block page_title %}Delete portfolio project{% endblock %}
+{% block content %}
+  <section class="panel-page-heading">
+    <div>
+      <p class="panel-eyebrow">PORTFOLIO / DATABASE</p>
+      <h1>Delete project</h1>
+      <p>This action cannot be undone.</p>
+    </div>
+    <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:portfolio_projects' %}">← Back to projects</a>
+  </section>
+  <section class="panel-card panel-card--form">
+    <p>Delete <strong>{{ project.title }}</strong> from the portfolio?</p>
+    <form method="post" class="panel-form">
+      {% csrf_token %}
+      <div class="panel-form__actions">
+        <button class="panel-button panel-button--danger" type="submit">Delete project</button>
+        <a class="panel-button panel-button--quiet" href="{% url 'staff_panel:portfolio_projects' %}">Cancel</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

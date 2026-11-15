@@ -1,0 +1,231 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Meet the Nexavira IT team: collaborative strategists, designers and developers helping businesses build better digital experiences.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Meet the Team | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Meet the team</p>
+        <h1>Thoughtful people<br>building <span>useful digital work.</span></h1>
+        <p>We bring strategy, design and technology together to help businesses make clearer choices and better digital experiences.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span aria-hidden="true">/</span><span>Team</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container team-featured">
+        <div data-reveal>
+          <p class="eyebrow">Who we are</p>
+          <h2>Small team, clear thinking and hands-on execution.</h2>
+          <p class="section-lede">At Nexavira IT, the work is shaped by close collaboration. We focus on the details that matter most: business goals, audience needs and long-term maintainability.</p>
+          <p>Whether we are refining a digital strategy, designing a customer experience or building an application, we stay grounded in practical outcomes and clear communication.</p>
+        </div>
+        <div class="stats-grid" data-reveal data-reveal-delay="100">
+          <div class="stat-card">
+            <strong>7</strong>
+            <span>Specialists</span>
+          </div>
+          <div class="stat-card">
+            <strong>100%</strong>
+            <span>Collaborative process</span>
+          </div>
+          <div class="stat-card">
+            <strong>1</strong>
+            <span>Shared goal: useful work</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Leadership</p>
+            <h2>Company leadership.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>Our leadership team brings strategy, operational focus and technical direction together to guide every engagement.</p>
+          </div>
+        </div>
+
+        <div class="leadership-grid">
+          <article class="team-card" data-reveal>
+            <img src="{% static 'images/HHR.png' %}" alt="Hasibul Hasan Rihan" style="margin: 0 auto;">
+            <br/>
+            <div class="team-card-top">
+              
+              <span class="team-avatar team-avatar-one">HHR</span>
+              <span class="team-role">Chief Executive Officer</span>
+            </div>
+            <h3>Hasibul Hasan Rihan</h3>
+            <p>Drives business vision, client partnerships and long term growth across the company.</p>
+            <ul class="team-meta">
+              <li>Strategy</li>
+              <li>Leadership</li>
+            </ul>
+          </article>
+
+          <article class="team-card" data-reveal data-reveal-delay="80">
+            <img src="{% static 'images/AAR.png' %}" alt="Abdullah AL Rafi" style="margin: 0 auto;"><br/>
+            <div class="team-card-top">
+              <span class="team-avatar team-avatar-two">AAR</span>
+              <span class="team-role">Chief Operating Officer</span>
+            </div>
+            <h3>Abdullah AL Rafi</h3>
+            <p>Ensures smooth delivery, operational clarity and efficient execution from project kickoff to launch.</p>
+            <ul class="team-meta">
+              <li>Architecture</li>
+              <li>Innovation</li>
+            </ul>
+          </article>
+
+          <article class="team-card" data-reveal data-reveal-delay="160">
+            <img src="{% static 'images/FBM.jpeg' %}" alt="MD. Fahmid Bin Mostafa" style="margin: 0 auto;"><br/>
+            <div class="team-card-top">
+              <span class="team-avatar team-avatar-three">FBM</span>
+              <span class="team-role">Chief Technology Officer</span>
+            </div>
+            <h3>MD. Fahmid Bin Mostafa</h3>
+            <p>Leads technology direction, system architecture and the delivery standards behind our digital products.</p>
+            <ul class="team-meta">
+              <li>Operations</li>
+              <li>Delivery</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Core team</p>
+            <h2>Design and development specialists.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>Our core team blends product thinking, visual design and full-stack delivery to build useful digital experiences.</p>
+          </div>
+        </div>
+
+        <div class="core-team-grid">
+          <article class="team-card" data-reveal>
+            <img src="{% static 'images/SH.png' %}" alt="Shakib Hossain" style="margin: 0 auto;"><br/>
+            <div class="team-card-top">
+              <span class="team-avatar team-avatar-four">SH</span>
+              <span class="team-role">UI/UX Designer</span>
+            </div>
+            <h3>Shakib Hossain</h3>
+            <p>Shapes intuitive interfaces, clear user journeys and brand experiences that feel easy and memorable.</p>
+            <ul class="team-meta">
+              <li>UI</li>
+              <li>UX</li>
+              <li>Design</li>
+            </ul>
+          </article>
+
+          <article class="team-card" data-reveal data-reveal-delay="80">
+            <img src="{% static 'images/ZH.png' %}" alt="Zahid Hosan" style="margin: 0 auto;"><br/>
+            <div class="team-card-top">
+              <span class="team-avatar team-avatar-one">ZH</span>
+              <span class="team-role">Full Stack Web Developer</span>
+            </div>
+            <h3>Zahid Hosan</h3>
+            <p>Builds dependable front-end and back-end solutions with a strong focus on performance and maintainability.</p>
+            <ul class="team-meta">
+              <li>MongoDB</li>
+              <li>Express JS</li>
+              <li>React</li>
+              <li>Node</li>
+            </ul>
+          </article>
+
+          <article class="team-card" data-reveal data-reveal-delay="160">
+            <img src="{% static 'images/AHR.png' %}" alt="Afjal Hossain Raju" style="margin: 0 auto;"><br/>
+            <div class="team-card-top">
+              <span class="team-avatar team-avatar-two">AHR</span>
+              <span class="team-role">Full Stack Web Developer</span>
+            </div>
+            <h3>Afjal Hossain Raju</h3>
+            <p>Turns product requirements into smooth, scalable web experiences that support business goals and user needs.</p>
+            <ul class="team-meta">
+              <li>MongoDB</li>
+              <li>Express JS</li>
+              <li>React</li>
+              <li>Node</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">How we work together</p>
+            <h2>Clear collaboration, practical execution.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>Our process stays transparent and collaborative from concept to launch, so the work remains aligned with your goals.</p>
+          </div>
+        </div>
+        <div class="value-grid">
+          <article class="value-card" data-reveal>
+            <span>01 / COLLABORATION</span>
+            <h3>We work closely with your team.</h3>
+            <p>Feedback, trade-offs and decisions are shared openly so the direction stays clear and useful.</p>
+          </article>
+          <article class="value-card" data-reveal data-reveal-delay="80">
+            <span>02 / CLARITY</span>
+            <h3>We keep things understandable.</h3>
+            <p>We explain technical decisions and practical options in a way that supports action, not confusion.</p>
+          </article>
+          <article class="value-card" data-reveal data-reveal-delay="160">
+            <span>03 / CARE</span>
+            <h3>We care about the details that matter.</h3>
+            <p>From accessibility to maintainability, we build with the long run in mind and a focus on real use.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-content" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow-light">Let’s build something thoughtful</p>
+          <h2>Bring your next project to the team.</h2>
+          <p>Tell us what you’re planning and we’ll help shape the right next step.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Start a conversation <span
+              aria-hidden="true">↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

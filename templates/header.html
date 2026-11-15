@@ -1,0 +1,32 @@
+{% load static %}
+<header class="site-header">
+    <div class="container nav-wrap"><a class="brand" href="{% url 'home' %}" aria-label="Nexavira IT home"><img
+                src="{% static 'images/NexaviraIT.png' %}" alt="" class="brand-logo"></a><button class="menu-toggle"
+            type="button" aria-label="Open navigation" aria-expanded="false"
+            aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+        <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation"><a
+                class="nav-link{% if request.resolver_match.url_name == 'home' %} is-active{% endif %}"
+                {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}
+                href="{% url 'home' %}">Home</a><a
+                class="nav-link{% if request.resolver_match.url_name == 'about' %} is-active{% endif %}"
+                {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}
+                href="{% url 'about' %}">About</a><a
+                class="nav-link{% if request.resolver_match.url_name == 'team' %} is-active{% endif %}"
+                {% if request.resolver_match.url_name == 'team' %}aria-current="page"{% endif %}
+                href="{% url 'team' %}">Team</a><a
+                class="nav-link{% if request.resolver_match.url_name == 'services' or request.resolver_match.url_name == 'web-development' or request.resolver_match.url_name == 'mobile-app-development' or request.resolver_match.url_name == 'software-development' or request.resolver_match.url_name == 'cloud-services' or request.resolver_match.url_name == 'automation-ai-integration' or request.resolver_match.url_name == 'it-consulting-advisory' %} is-active{% endif %}"
+                {% if request.resolver_match.url_name == 'services' or request.resolver_match.url_name == 'web-development' or request.resolver_match.url_name == 'mobile-app-development' or request.resolver_match.url_name == 'software-development' or request.resolver_match.url_name == 'cloud-services' or request.resolver_match.url_name == 'automation-ai-integration' or request.resolver_match.url_name == 'it-consulting-advisory' %}aria-current="page"{% endif %}
+                href="{% url 'services' %}">Services</a><a
+                class="nav-link{% if request.resolver_match.url_name == 'pricing' %} is-active{% endif %}"
+                {% if request.resolver_match.url_name == 'pricing' %}aria-current="page"{% endif %}
+                href="{% url 'pricing' %}">Pricing</a><a
+                class="nav-link{% if request.resolver_match.url_name == 'portfolio' %} is-active{% endif %}"
+                {% if request.resolver_match.url_name == 'portfolio' %}aria-current="page"{% endif %}
+                href="{% url 'portfolio' %}">Portfolio</a><a
+                class="nav-link{% if request.resolver_match.url_name == 'contact' %} is-active{% endif %}"
+                {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}
+                href="{% url 'contact' %}">Contact</a><a class="button button-small nav-cta"
+                href="{% url 'contact' %}">Get a Quote <span aria-hidden="true">↗</span></a>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,102 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Nexavira IT consulting and advisory helps businesses evaluate, implement and manage technology appropriately.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>IT Consulting &amp; Advisory | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/animations.css' %}" rel="stylesheet">
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">IT Consulting &amp; Advisory</p>
+        <h1>Technology decisions, <span>made with context.</span></h1>
+        <p>Get practical guidance to evaluate, implement and manage technology that fits your business.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span>/</span><a
+            href="{% url 'services' %}">Services</a><span>/</span><span>IT Consulting &amp; Advisory</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container detail-layout">
+        <div class="detail-copy" data-reveal>
+          <p class="eyebrow">Independent thinking for your next step</p>
+          <h2>Find the right technology for the job.</h2>
+          <p class="section-lede">Technology can create value when it is implemented appropriately, managed responsibly
+            and connected to real business needs.</p>
+          <p>We can help you clarify requirements, evaluate options and plan an implementation or improvement. Advice is
+            based on the scope and information available; specialized legal, compliance or security reviews may require
+            qualified providers.</p><a class="button" href="{% url 'contact' %}">Discuss IT consulting <span
+              aria-hidden="true">↗</span></a>
+        </div>
+        <aside class="detail-panel" data-reveal data-reveal-delay="100"><span class="detail-panel-index">06 / IT
+            CONSULTING &amp; ADVISORY</span>
+          <ul class="detail-list">
+            <li>Technology needs and priorities review</li>
+            <li>Options and solution-fit assessment</li>
+            <li>Implementation and integration planning</li>
+            <li>Operational responsibilities and support planning</li>
+            <li>Risk, dependency and trade-off discussions</li>
+            <li>Practical recommendations for next steps</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-tint">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Guidance that fits</p>
+            <h2>Clear advice, grounded<br>in your circumstances.</h2>
+          </div>
+          <div class="heading-aside">
+            <p>We take your team, existing setup, business goals and operating constraints into account when exploring
+              options.</p>
+          </div>
+        </div>
+        <div class="principle-grid">
+          <article class="principle-card"><span>01 / DISCOVER</span>
+            <h3>Understand the context.</h3>
+            <p>Clarify goals, constraints and what is already in place.</p>
+          </article>
+          <article class="principle-card"><span>02 / ADVISE</span>
+            <h3>Make options understandable.</h3>
+            <p>Explain potential approaches, trade-offs and dependencies.</p>
+          </article>
+          <article class="principle-card"><span>03 / PLAN</span>
+            <h3>Define the next steps.</h3>
+            <p>Turn recommendations into a realistic implementation direction.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section">
+      <div class="container cta-content">
+        <div>
+          <p class="eyebrow eyebrow-light">Need a second perspective?</p>
+          <h2>Let’s work through the technology choices.</h2>
+          <p>Tell us what you’re evaluating or trying to improve.</p>
+        </div>
+        <div class="cta-actions"><a class="button button-light" href="{% url 'contact' %}">Talk to our team
+            <span>↗</span></a></div><span class="cta-decoration" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

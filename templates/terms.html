@@ -1,0 +1,77 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Review the Nexavira IT website terms draft and confirm the applicable business and legal details before publication.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Website Terms | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Legal information · Draft for review</p>
+        <h1>Website terms, <span>clearly stated.</span></h1>
+        <p>This draft needs review against the company’s actual operations and applicable law before it is used as
+          binding terms.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span aria-hidden="true">/</span><span>Terms</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <article class="container legal-content">
+        <div class="legal-notice"><strong>Publication reminder:</strong> Replace bracketed details, confirm ownership
+          and permissions for all published material, define the governing law and dispute process with qualified
+          counsel, and approve this document before publication.</div>
+        <p class="legal-updated">Last reviewed: [Add review date]</p>
+        <h2>About these terms</h2>
+        <p>These draft terms are intended to cover use of the Nexavira IT website at [Add website address]. The final
+          version should identify the correct legal entity and the laws that govern the site.</p>
+        <h2>Website information</h2>
+        <p>Website content is provided for general information about Nexavira IT. Service availability, project scope,
+          fees, schedules, deliverables and support are subject to a separate written agreement where applicable. Do not
+          rely on an informal website description as a project proposal.</p>
+        <h2>Acceptable use</h2>
+        <p>Visitors must use the website lawfully and must not interfere with its operation, attempt unauthorized
+          access, introduce harmful code, or misuse contact channels. Tailor this clause to the business and local legal
+          requirements.</p>
+        <h2>Intellectual property</h2>
+        <p>Identify which website text, design elements, marks, software and other materials belong to Nexavira IT or
+          are used with permission. State how visitors may or may not reproduce them. Confirm all third-party assets and
+          licenses before launch.</p>
+        <h2>Third-party websites and services</h2>
+        <p>This site may link to third-party services. Confirm the actual links and explain that third-party websites
+          operate under their own terms and privacy practices. Do not imply endorsement unless that relationship is
+          verified.</p>
+        <h2>Disclaimers and liability</h2>
+        <p>Any disclaimer, limitation of liability, warranty language, or consumer-rights provision must be carefully
+          reviewed for enforceability and applicable mandatory protections. This draft does not establish those
+          provisions.</p>
+        <h2>Changes and governing law</h2>
+        <p>Set out how updates will be made, the effective date, and the governing law and dispute process with
+          qualified legal advice. Do not insert a jurisdiction by assumption.</p>
+        <h2>Contact</h2>
+        <p>For questions about these website terms, contact:</p>
+        <p><strong>Business:</strong> Nexavira IT<br><strong>Email:</strong> nexavira@gmail.com<br><strong>Address:</strong> Mirpur, Dhaka, Bangladesh</p>
+      </article>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+{% load static job_html %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about working with Nexavira IT and find current career opportunities.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Careers | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "header.html" %}
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-content" data-reveal>
+        <p class="eyebrow">Careers at Nexavira IT</p>
+        <h1>Career <span>opportunities.</span></h1>
+        <p>Browse current openings and apply directly with your resume.</p>
+        <div class="breadcrumbs"><a href="{% url 'home' %}">Home</a><span aria-hidden="true">/</span><span>Careers</span></div>
+      </div>
+    </section>
+    {% if messages %}
+    <div class="container career-alerts" role="status" aria-live="polite">
+      {% for message in messages %}
+      <p class="career-alert">{{ message }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <section class="section">
+      <div class="container career-list">
+        {% for job in jobs %}
+        <article class="opening-card career-job" data-reveal>
+          <div class="career-job-meta">
+            <span>{{ job.get_employment_type_display }}</span>
+            <span>{{ job.get_workplace_type_display }}</span>
+            <span>{{ job.location }}</span>
+          </div>
+          <h2>{{ job.title }}</h2>
+          <p class="career-job-summary">{{ job.description|job_plain_text|truncatewords:28 }}</p>
+          <a class="button" href="{% url 'apply_job' job.id %}">View details &amp; apply
+            <span aria-hidden="true">↗</span></a>
+        </article>
+        {% empty %}
+        <article class="opening-card career-opening" data-reveal aria-labelledby="career-status">
+          <svg class="career-empty-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="5"></circle>
+            <path d="M15 15 49 49" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="5"></path>
+          </svg>
+          <p class="eyebrow">Current opportunities</p>
+          <h2 id="career-status">No current openings</h2>
+          <p>There are no open positions right now. Please check back later for new opportunities.</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+  {% include "footer.html" %}
+</body>
+
+</html>

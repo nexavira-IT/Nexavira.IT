@@ -1,0 +1,80 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b45">
+  <title>{% block page_title %}Admin panel{% endblock %} | Nexavira IT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/Nexavira.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
+  {% block extra_head %}{{ form.media }}{% endblock %}
+</head>
+<body class="panel-body">
+  <header class="panel-topbar">
+    <a class="panel-brand" href="{% url 'staff_panel:dashboard' %}" aria-label="Nexavira admin dashboard">
+      <img src="{% static 'images/NexaviraIT.png' %}" alt="Nexavira IT">
+      <span>Control Center</span>
+    </a>
+    <div class="panel-topbar__right">
+      <a class="panel-view-site" href="{% url 'home' %}" target="_blank" rel="noopener">View website <span aria-hidden="true">↗</span></a>
+      <span class="panel-user">{{ request.user.get_short_name|default:request.user.username }}</span>
+      <form method="post" action="{% url 'staff_panel:logout' %}">
+        {% csrf_token %}
+        <button class="panel-logout" type="submit">Log out</button>
+      </form>
+    </div>
+  </header>
+
+  <div class="panel-shell">
+    <aside class="panel-sidebar" aria-label="Admin navigation">
+      <p class="panel-sidebar__label">WORKSPACE</p>
+      <nav class="panel-nav">
+        <a class="{% if request.resolver_match.url_name == 'dashboard' %}is-active{% endif %}" href="{% url 'staff_panel:dashboard' %}">
+          <span class="panel-nav__icon" aria-hidden="true">◫</span> Overview
+        </a>
+        {% if panel_permissions.jobs %}
+          <a class="{% if 'job_' in request.resolver_match.url_name %}is-active{% endif %}" href="{% url 'staff_panel:job_list' %}">
+            <span class="panel-nav__icon" aria-hidden="true">▤</span> Job opportunities
+          </a>
+        {% endif %}
+        {% if panel_permissions.portfolio %}
+          <a class="{% if 'portfolio_' in request.resolver_match.url_name %}is-active{% endif %}" href="{% url 'staff_panel:portfolio_projects' %}">
+            <span class="panel-nav__icon" aria-hidden="true">▧</span> Portfolio projects
+          </a>
+        {% endif %}
+        {% if panel_permissions.applications %}
+          <a class="{% if 'application_' in request.resolver_match.url_name %}is-active{% endif %}" href="{% url 'staff_panel:application_list' %}">
+            <span class="panel-nav__icon" aria-hidden="true">▣</span> Applications
+          </a>
+        {% endif %}
+        {% if panel_permissions.contacts %}
+          <a class="{% if 'contact_' in request.resolver_match.url_name %}is-active{% endif %}" href="{% url 'staff_panel:contact_list' %}">
+            <span class="panel-nav__icon" aria-hidden="true">✉</span> Inquiries
+          </a>
+        {% endif %}
+      </nav>
+      <div class="panel-sidebar__note">
+        <span class="panel-sidebar__note-dot"></span>
+        Connected to the website database
+      </div>
+    </aside>
+
+    <main class="panel-main">
+      {% if messages %}
+        <div class="panel-messages" role="status" aria-live="polite">
+          {% for message in messages %}
+            <p class="panel-message panel-message--{{ message.tags }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% block content %}{% endblock %}
+      <footer class="panel-footer">Nexavira IT <span>·</span> Website management</footer>
+    </main>
+  </div>
+</body>
+</html>
