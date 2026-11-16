@@ -126,8 +126,12 @@ class PortfolioProject(models.Model):
     class Category(models.TextChoices):
         WEBSITES = 'websites', 'Websites'
         ECOMMERCE = 'ecommerce', 'E-commerce'
-        WEB_APPLICATIONS = 'web-applications', 'Web applications'
+        WEB_APPLICATIONS = 'web-applications', 'Web Applications'
         WORDPRESS = 'wordpress', 'WordPress'
+        COMPNAY_WEBSITES = 'company-websites', 'Company Websites'
+        Application = 'application', 'Application'
+        Software = 'software', 'Software'
+        AI = 'ai', 'AI'
 
     title = models.CharField(max_length=150)
     category = models.CharField(max_length=30, choices=Category.choices)
